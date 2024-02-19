@@ -11,7 +11,10 @@ Where three pioneers explain how they discovered data from the CMIP6 world and, 
 => display 20 files per page (for more files the wget script won't be generated), add to cart, download wget script, copy the http links to new text file, do this for all files for each variable
 => I then subset the http links based on the presence of year 2100 in the filename (this is consistent across files)
 
-2) On ada, I then run the download with command:
+2) On the servers, I then run the download with command:
 ```for i in `awk '{print $2}' thetao_2100.txt`; do wget $i; done```
-4) the processing of the data is then performed with the script "cmip6_process.R".
+
+3) The regridding script from Jazel is performed with the script "regridCropCDO.sh" (including the file "grid_quarterDegree.txt" in the directory inside which the script is ran, this file might be modified to increase or lower the resolution).
+
+5) the processing of the data is then performed with the script "cmip6_process.R".
 
